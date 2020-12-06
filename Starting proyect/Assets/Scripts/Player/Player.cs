@@ -11,9 +11,10 @@ public class Player : MonoBehaviour
     PlayerActions actions;
     [SerializeField]
     PlayerStats stats;
-    [SerializeField]
-    IngameUI IngameUI;
-  
+    
+
+    GameManager gameManager;
+
 
 
     public PlayerComponents Components { get => components; }
@@ -28,8 +29,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stats.LootAmmount = 0;
-        IngameUI.Score = stats.LootAmmount;
+        
     }
 
     // Update is called once per frame
@@ -41,11 +41,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         actions.Move(transform);
-    }
-    private void LateUpdate()
-    {
-        IngameUI.Score = stats.LootAmmount;
-        IngameUI.ScoreText.text = " Treasures: " + IngameUI.Score;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
