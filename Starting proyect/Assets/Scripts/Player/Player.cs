@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Space]
     [SerializeField]
-    PlayerComponents components;
+    GameManager gameManager = null;
+    [Space]
+    [SerializeField]
+    PlayerComponents components = null;
     PlayerReferences references;
     PlayerUtilities  utilities;
     PlayerActions actions;
     [SerializeField]
-    PlayerStats stats;
+    PlayerStats stats = null;
     
-
-    GameManager gameManager;
+   
 
 
 
@@ -22,6 +25,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        if (gameManager == null)
+        {
+            Debug.Log("Assign GameManager object to Player!! (gameManager was null on Player script)");
+        }
+        
         actions = new PlayerActions(this);
         utilities = new PlayerUtilities(this);
         stats.Speed = stats.WalkSpeed;
@@ -45,13 +53,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("OnTriggerEnter2D");
         if (col.CompareTag("Collectable"))
         {
-            Debug.Log("Recognised as Collectable");
-            Stats.LootAmmount++;
-            //Destroy(col.gameObject);
-            col.gameObject.SetActive(false); //TODO:research about what is better(cheaper): destroy or setACtive? 
+            actions.PickCollectable(col);
         }
     }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Danger"))
+        {
+            Destroy(gameObject);//destroys the player.
+            gameManager.GameOver();
+        }
+    }
+
 }

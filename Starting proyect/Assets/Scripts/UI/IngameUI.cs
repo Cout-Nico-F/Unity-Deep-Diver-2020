@@ -6,12 +6,11 @@ using UnityEngine.UI;
 [System.Serializable]
 public class IngameUI
 {
-    Player player;
     private int score;
 
     [SerializeField]
-    private Text scoreText;
-
+    private Text scoreText = null;
+    
     public int Score { get => score; set => score = value; }
     public Text ScoreText { get => scoreText; set => scoreText = value; }
 
