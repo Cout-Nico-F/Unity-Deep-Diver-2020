@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         if (player.gameObject != GameObject.FindGameObjectWithTag("Player"))
         {
             Debug.LogError("Forgot to change serializable Player on GameManager object");
+            
         }
         gameOverPanel.SetActive(false);
         SetScore();
@@ -57,6 +58,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
     }
 
+    public void DestroyObject(GameObject obj)
+    {
+        Destroy(obj);
+    }
 
     public void GameOver ()
     {

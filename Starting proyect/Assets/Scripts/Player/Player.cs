@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         actions = new PlayerActions(this);
         utilities = new PlayerUtilities(this);
         stats.Speed = stats.WalkSpeed;
+        references = new PlayerReferences();
     }
     // Start is called before the first frame update
     void Start()
@@ -67,9 +68,14 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Danger"))
         {
-            Destroy(gameObject);//destroys the player.
+            GetComponent<SpriteRenderer>().sprite = references.DeadSprite;
             gameManager.GameOver();
         }
+    }
+
+    public void DestroyDelegate(GameObject obj)
+    {
+        gameManager.DestroyObject(obj);
     }
 
 }

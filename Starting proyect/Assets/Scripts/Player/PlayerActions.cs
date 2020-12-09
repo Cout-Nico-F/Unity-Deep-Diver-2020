@@ -18,8 +18,12 @@ public class PlayerActions
     {
         Debug.Log("PickCollectable method here");
         player.Stats.LootAmmount+=1;
-        //Destroy(col.gameObject);
-        col.gameObject.SetActive(false); //TODO:research about what is better(cheaper): destroy or setACtive? 
+        Destroy(col.gameObject);
+        //col.gameObject.SetActive(false); //TODO:research about what is better(cheaper): destroy or setACtive? 
+    }
+    private void Destroy(GameObject obj)
+    {
+        player.DestroyDelegate(obj);//TODO:im not sure about this method delegation. should player destroy the object instead? 
     }
 }
  
