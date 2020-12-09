@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    /// <summary>
+    /// Steps when changing players: </para>
+    /// Serialize player in GameManager object. </para>
+    /// Serialize player in cameraFollow (Camera object) </para>
+    /// 
+    /// </summary>
+
     [Space]
     [SerializeField]
     GameManager gameManager = null;
@@ -16,9 +23,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     PlayerStats stats = null;
     
-   
-
-
 
     public PlayerComponents Components { get => components; }
     public PlayerStats Stats { get => stats; }
@@ -58,6 +62,7 @@ public class Player : MonoBehaviour
             actions.PickCollectable(col);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Danger"))
