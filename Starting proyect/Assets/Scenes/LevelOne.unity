@@ -4231,7 +4231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 508742969}
   smoothSpeed: 2
-  offset: {x: 0, y: 0.4, z: -1}
+  offset: {x: 0, y: 0.4, z: -1.2}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5789,12 +5789,12 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -5.641083, y: 3.4168508}
-  - {x: -4.809216, y: 2.6804357}
-  - {x: -4.8255396, y: -2.359133}
-  - {x: 4.7896233, y: -2.3092227}
-  - {x: 4.787331, y: 2.6560986}
-  - {x: 5.762016, y: 3.3369021}
+  - {x: -6.606577, y: 3.3476608}
+  - {x: -5.987446, y: 2.4728658}
+  - {x: -5.1528254, y: -2.9956799}
+  - {x: 4.5277934, y: -3.014959}
+  - {x: 6.440126, y: 2.9882097}
+  - {x: 6.7766027, y: 3.9872866}
 --- !u!1001 &757412293
 PrefabInstance:
   m_ObjectHideFlags: 0
