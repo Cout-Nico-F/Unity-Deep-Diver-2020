@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [Space]
     [SerializeField]
     GameManager gameManager = null;
+    [SerializeField]
+    AudioClip collectSFX;
     [Space]
     [SerializeField]
     PlayerComponents components = null;
@@ -31,7 +33,11 @@ public class Player : MonoBehaviour
     {
         if (gameManager == null)
         {
-            Debug.Log("Assign GameManager object to Player!! (gameManager was null on Player script)");
+            Debug.LogError("Assign GameManager object to Player!! (gameManager was null on Player script)");
+        }
+        if (collectSFX == null)
+        {
+            Debug.LogError("Assign Collect-SFX to the Player!");
         }
         
         actions = new PlayerActions(this);
@@ -60,6 +66,7 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Collectable"))
         {
+            AudioSource.PlayClipAtPoint(collectSFX, transform.position);
             actions.PickCollectable(col);
         }
     }

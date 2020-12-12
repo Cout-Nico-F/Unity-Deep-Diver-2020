@@ -69,8 +69,8 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
-        //SceneManager.LoadScene("LevelOne", LoadSceneMode )
-        StartCoroutine(LoadAsyncScene());
+        SceneManager.LoadScene("LevelOne");
+        //StartCoroutine(LoadAsyncScene());
     }
 
     IEnumerator LoadAsyncScene()//from unity docs
