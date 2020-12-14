@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (isGameOver)
+        { return; }
+        
         UpdateScore();
     }
 
@@ -65,13 +68,10 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScore()
     {
-        if (!isGameOver)
-        {
             Debug.Log("UpdatingScore");
             ingameUI.Score = player.Stats.LootAmmount;
             ingameUI.ScoreText.text = " Treasures: " + ingameUI.Score;
             Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
-        }
     }
 
     public void DestroyObject(GameObject obj)
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         Destroy(obj);
     }
 
-    public void GameOver ()
+    public void GameOver()
     {
         isGameOver = true;
         gameOverPanel.SetActive(true);
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameOver)
         {
-
+            isGameOver = true;
             //show HighScores panel and ask for input player's name
             highScoresPanel.SetActive(true);
             //save player score, name and date to Json

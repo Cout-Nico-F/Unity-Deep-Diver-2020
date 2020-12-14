@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     PlayerComponents components = null;
     PlayerReferences references;
-    PlayerUtilities  utilities;
+    PlayerUtilities utilities;
     PlayerActions actions;
     [SerializeField]
     PlayerStats stats = null;
-    
+
 
     public PlayerComponents Components { get => components; }
     public PlayerStats Stats { get => stats; }
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("Assign Collect-SFX to the Player!");
         }
-        
+
         actions = new PlayerActions(this);
         utilities = new PlayerUtilities(this);
         stats.Speed = stats.WalkSpeed;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -63,24 +63,35 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (gameManager.IsGameOver)//If its game over update wont do anything.
+        {
+            return;
+        }
         actions.Move(transform);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Collectable"))
+        if (!gameManager.IsGameOver)
         {
-            AudioSource.PlayClipAtPoint(collectSFX, transform.position);
-            actions.PickCollectable(col);
+            if (col.CompareTag("Collectable"))
+            {
+                AudioSource.PlayClipAtPoint(collectSFX, transform.position);
+                actions.PickCollectable(col);
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Danger"))
+        if (!gameManager.IsGameOver)
         {
-            GetComponent<SpriteRenderer>().sprite = references.DeadSprite;
-            gameManager.GameOver();
+            if (col.gameObject.CompareTag("Danger"))
+            {
+                GetComponent<SpriteRenderer>().sprite = references.DeadSprite;
+                Components.Rigidbody2D.AddForce(new Vector2(6.2f, 5.0f), ForceMode2D.Impulse);
+                gameManager.GameOver();
+            }
         }
     }
 
