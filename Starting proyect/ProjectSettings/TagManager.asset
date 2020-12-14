@@ -7,6 +7,7 @@ TagManager:
   - Collectable
   - Danger
   - BGM
+  - Puaj
   layers:
   - Default
   - TransparentFX
