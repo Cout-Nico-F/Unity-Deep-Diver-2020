@@ -12,30 +12,43 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject gameOverPanel = null;
+    [SerializeField]
+    GameObject highScoresPanel = null;
+
+    private bool isGameOver;
+
+    public bool IsGameOver { get => isGameOver; }
+
     private void Awake()
     {
         if (player == null)
         {
-            Debug.Log("Assign player to GameManager!! (Player was null on gamemanager script)");
+            Debug.LogWarning("Assign player to GameManager!! (Player was null on gamemanager script)");
         }
         if (ingameUI.ScoreText == null)
         {
-            Debug.Log("Assign scoreText to GameManager!! (ScoreText was null on gamemanager script)");
+            Debug.LogWarning("Assign scoreText to GameManager!! (ScoreText was null on gamemanager script)");
         }
         if (gameOverPanel == null)
         {
-            Debug.Log("Assign GameOverPanel to GameManager!! (GameOverPanel was null on gamemanager script)");
+            Debug.LogWarning("Assign GameOverPanel to GameManager!! (GameOverPanel was null on gamemanager script)");
+        }
+        if (highScoresPanel == null)
+        {
+            Debug.LogWarning("Assign HighScore panel to GameManager!! (highScoresPanel was null on gamemanager script)");
         }
     }
     // Start is called before the first frame update
     void Start()
     {
+        isGameOver = false;
         if (player.gameObject != GameObject.FindGameObjectWithTag("Player"))
         {
             Debug.LogError("Forgot to change serializable Player on GameManager object");
             
         }
         gameOverPanel.SetActive(false);
+        highScoresPanel.SetActive(false);
         SetScore();
     }
 
@@ -52,10 +65,13 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScore()
     {
-        Debug.Log("UpdatingScore");
-        ingameUI.Score = player.Stats.LootAmmount;
-        ingameUI.ScoreText.text = " Treasures: " + ingameUI.Score;
-        Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
+        if (!isGameOver)
+        {
+            Debug.Log("UpdatingScore");
+            ingameUI.Score = player.Stats.LootAmmount;
+            ingameUI.ScoreText.text = " Treasures: " + ingameUI.Score;
+            Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
+        }
     }
 
     public void DestroyObject(GameObject obj)
@@ -65,27 +81,56 @@ public class GameManager : MonoBehaviour
 
     public void GameOver ()
     {
+        isGameOver = true;
         gameOverPanel.SetActive(true);
     }
     public void Restart()
     {
+        isGameOver = false;
         SceneManager.LoadScene("LevelOne");
         //StartCoroutine(LoadAsyncScene());
     }
 
-    IEnumerator LoadAsyncScene()//from unity docs
+    IEnumerator LoadAsyncScene(string scene_name)//from unity docs
     {
         // The Application loads the Scene in the background as the current Scene runs.
         // This is particularly good for creating loading screens.
         // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
         // a sceneBuildIndex of 1 as shown in Build Settings.
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelOne");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene_name);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
             yield return null;
+        }
+    }
+    public void SubmitScore()
+    {
+        if (!isGameOver)
+        {
+            //show HighScores panel and ask for input player's name
+            highScoresPanel.SetActive(true);
+            //save player score, name and date to Json
+            //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
+
+            if (player.Stats.LootAmmount > 3)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
+            {
+                //Enable button to pass to next level
+                highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);
+            }
+            else 
+            {
+                //show a message saying You cant proceed with such a low score. or smthing
+            }
+
+            //Enable Restart button in this panel to try again for a better score.
+        }
+        else
+        {
+            //Message: You cant submit a score if your game is over.
+            //Maybe unnecesary check ( i can check this before )
         }
     }
 }

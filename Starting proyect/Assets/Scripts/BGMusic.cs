@@ -8,7 +8,7 @@ public class BGMusic : MonoBehaviour
         musicPlayer = GameObject.Find("MUSIC");
         if (musicPlayer == null)
         {
-            Debug.Log("musicPlayer was null");
+            //Debug.LogWarning("musicPlayer was null");
             //If this object does not exist then it does the following:
             //1. Sets the object this script is attached to as the music player
             musicPlayer = this.gameObject;
