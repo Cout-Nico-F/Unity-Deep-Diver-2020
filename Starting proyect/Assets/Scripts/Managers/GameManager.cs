@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             //show HighScores panel and ask for input player's name
             highScoresPanel.SetActive(true);
+            highScoresPanel.transform.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
             //save player score, name and date to Json
             //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
 
@@ -124,6 +125,7 @@ public class GameManager : MonoBehaviour
             else 
             {
                 //show a message saying You cant proceed with such a low score. or smthing
+                highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
             }
 
             //Enable Restart button in this panel to try again for a better score.
