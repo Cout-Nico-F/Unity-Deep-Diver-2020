@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
+        //deactivate ingame buttons.
+        highScoresPanel.transform.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
         gameOverPanel.SetActive(true);
     }
     public void Restart()
@@ -108,32 +110,23 @@ public class GameManager : MonoBehaviour
     }
     public void SubmitScore()
     {
-        if (!isGameOver)
+        isGameOver = true;
+        //show HighScores panel and ask for input player's name
+        highScoresPanel.SetActive(true);
+        highScoresPanel.transform.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
+        //save player score, name and date to Json
+        //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
+
+        if (player.Stats.LootAmmount > 3)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
         {
-            isGameOver = true;
-            //show HighScores panel and ask for input player's name
-            highScoresPanel.SetActive(true);
-            highScoresPanel.transform.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
-            //save player score, name and date to Json
-            //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
-
-            if (player.Stats.LootAmmount > 3)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
-            {
-                //Enable button to pass to next level
-                highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);
-            }
-            else 
-            {
-                //show a message saying You cant proceed with such a low score. or smthing
-                highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
-            }
-
-            //Enable Restart button in this panel to try again for a better score.
+            //Enable button to pass to next level
+            highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);
         }
         else
         {
-            //Message: You cant submit a score if your game is over.
-            //Maybe unnecesary check ( i can check this before )
+            //show a message saying You cant proceed with such a low score. or smthing
+            highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
         }
+
     }
 }
