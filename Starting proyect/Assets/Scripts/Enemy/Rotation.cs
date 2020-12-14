@@ -13,6 +13,6 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().AddTorque( 0.001f);
+        GetComponent<Rigidbody2D>().AddTorque( 2f);
     }
 }
