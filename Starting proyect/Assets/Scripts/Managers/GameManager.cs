@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameOver)
         {
+
             //show HighScores panel and ask for input player's name
             highScoresPanel.SetActive(true);
             //save player score, name and date to Json

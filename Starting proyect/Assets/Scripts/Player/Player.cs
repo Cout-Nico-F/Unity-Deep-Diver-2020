@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.IsGameOver)//If its game over update wont do anything.
+        {
+            return;
+        }
         utilities.HandleImputs();
     }
 
