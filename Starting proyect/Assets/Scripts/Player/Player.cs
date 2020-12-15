@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         {
             if (col.CompareTag("Collectable"))
             {
-                AudioSource.PlayClipAtPoint(collectSFX, transform.position);
+                AudioSource.PlayClipAtPoint(stats.CollectSFX, transform.position, 0.45f);
                 actions.PickCollectable(col);
             }
         }
@@ -92,13 +92,16 @@ public class Player : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Danger"))
             {
-                GetComponent<SpriteRenderer>().sprite = references.DeadSprite;
+                //Vector3 cameraPos = new Vector3(transform.position.x, transform.position.y, Camera.main.transform);
+                //AudioSource.PlayClipAtPoint(stats.DeadSFX, Camera.main.transform.position, 1f);
+                AudioSource.PlayClipAtPoint(stats.DeadSFX, transform.position,1f);
+                GetComponent<Animator>().SetBool("Dead", true);
                 Components.Rigidbody2D.AddForce(new Vector2(6.2f, 5.0f), ForceMode2D.Impulse);
                 gameManager.GameOver();
             }
             if (col.gameObject.CompareTag("Puaj") && stats.PuajAnimationElapsedTime > stats.PuajAnimationCooldownTime)
             {
-                AudioSource.PlayClipAtPoint(puajSFX, transform.position);
+                AudioSource.PlayClipAtPoint(stats.PuajSFX, transform.position,0.45f);
                 GetComponent<Animator>().SetTrigger("Cucumber_Touch");
                 stats.PuajAnimationLastTime = Time.time;
             }
