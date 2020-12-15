@@ -19,5 +19,19 @@ public class PlayerStats
     public float WalkSpeed { get => walkSpeed; }
     public int LootAmmount { get => lootAmmount; set => lootAmmount = value; }
 
-    
+    //animation variables
+    [SerializeField]
+    AudioClip collectSFX;
+    [SerializeField]
+    AudioClip puajSFX;
+    private float puajAnimationElapsedTime;
+    private float puajAnimationLastTime;
+    [SerializeField]
+    private float puajAnimationCooldownTime = 2f;
+
+    public float PuajAnimationElapsedTime { get => puajAnimationElapsedTime; set => puajAnimationElapsedTime = value; }
+    public float PuajAnimationLastTime { get => puajAnimationLastTime; set => puajAnimationLastTime = value; }
+    public float PuajAnimationCooldownTime { get => puajAnimationCooldownTime; }
+    public AudioClip CollectSFX { get => collectSFX; set => collectSFX = value; }
+    public AudioClip PuajSFX { get => puajSFX; set => puajSFX = value; }
 }
