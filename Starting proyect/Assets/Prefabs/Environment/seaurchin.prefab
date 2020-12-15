@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1503781696978759273}
   - component: {fileID: 7761144929297182711}
   - component: {fileID: 1113861605844776611}
+  - component: {fileID: 7120437311361715209}
   m_Layer: 0
   m_Name: seaurchin
   m_TagString: Untagged
@@ -133,3 +134,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa8b90e82f59fa4484d70207756c09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7120437311361715209
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503781696978759271}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 992a1316ce9b0fa48ad53e6dbd1d13c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

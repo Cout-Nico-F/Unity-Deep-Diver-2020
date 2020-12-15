@@ -15,6 +15,7 @@ public class FallingItemRespawnScript : MonoBehaviour
     void Update()
     {
         CheckRespawn();
+        transform.Rotate(0, 0, 50 * Time.deltaTime);
     }
 
     //maybe can add some randomize to the position

@@ -92,6 +92,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("LevelOne");
         //StartCoroutine(LoadAsyncScene());
     }
+     public void ToMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     IEnumerator LoadAsyncScene(string scene_name)//from unity docs
     {
