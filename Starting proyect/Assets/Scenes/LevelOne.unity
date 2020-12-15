@@ -1649,17 +1649,17 @@ PrefabInstance:
     - target: {fileID: 3472703548883796685, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.29667038
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 3472703548883796685, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3009956
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 3472703548883796685, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.010039091
+      value: 0.01003909
       objectReference: {fileID: 0}
     - target: {fileID: 3472703548883796685, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
@@ -1701,6 +1701,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3472703548883796685, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2730027
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472703548883796685, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2725821
+      objectReference: {fileID: 0}
     - target: {fileID: 3472703548883796686, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: IngameUI
@@ -1736,6 +1746,16 @@ PrefabInstance:
       propertyPath: stats.collectSFX
       value: 
       objectReference: {fileID: 8300000, guid: 60bb630da1236874dad4db5f0e5cce83, type: 3}
+    - target: {fileID: 3472703548883796686, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: stats.deadSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ffd146924d2ea04f96ab44603149e3e, type: 3}
+    - target: {fileID: 3472703548883796686, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: stats.puajAnimationCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3472703548883796687, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: m_Mass
@@ -2319,7 +2339,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d3647d0bb6f82754b83462a573e143de, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

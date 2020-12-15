@@ -24,6 +24,8 @@ public class PlayerStats
     AudioClip collectSFX;
     [SerializeField]
     AudioClip puajSFX;
+    [SerializeField]
+    AudioClip deadSFX;
     private float puajAnimationElapsedTime;
     private float puajAnimationLastTime;
     [SerializeField]
@@ -34,4 +36,6 @@ public class PlayerStats
     public float PuajAnimationCooldownTime { get => puajAnimationCooldownTime; }
     public AudioClip CollectSFX { get => collectSFX; }
     public AudioClip PuajSFX { get => puajSFX; }
+    public AudioClip DeadSFX { get => deadSFX; }
+
 }
