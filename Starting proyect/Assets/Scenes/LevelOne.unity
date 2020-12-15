@@ -1726,6 +1726,16 @@ PrefabInstance:
       propertyPath: puajSFX
       value: 
       objectReference: {fileID: 8300000, guid: f61f2898b0968b748b03b88c628fdd66, type: 3}
+    - target: {fileID: 3472703548883796686, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: stats.puajSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: f61f2898b0968b748b03b88c628fdd66, type: 3}
+    - target: {fileID: 3472703548883796686, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: stats.collectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 60bb630da1236874dad4db5f0e5cce83, type: 3}
     - target: {fileID: 3472703548883796687, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: m_Mass

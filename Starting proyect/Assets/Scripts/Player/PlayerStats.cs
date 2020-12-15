@@ -32,6 +32,6 @@ public class PlayerStats
     public float PuajAnimationElapsedTime { get => puajAnimationElapsedTime; set => puajAnimationElapsedTime = value; }
     public float PuajAnimationLastTime { get => puajAnimationLastTime; set => puajAnimationLastTime = value; }
     public float PuajAnimationCooldownTime { get => puajAnimationCooldownTime; }
-    public AudioClip CollectSFX { get => collectSFX; set => collectSFX = value; }
-    public AudioClip PuajSFX { get => puajSFX; set => puajSFX = value; }
+    public AudioClip CollectSFX { get => collectSFX; }
+    public AudioClip PuajSFX { get => puajSFX; }
 }

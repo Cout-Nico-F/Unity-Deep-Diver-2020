@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         {
             if (col.CompareTag("Collectable"))
             {
-                AudioSource.PlayClipAtPoint(collectSFX, transform.position);
+                AudioSource.PlayClipAtPoint(stats.CollectSFX, transform.position);
                 actions.PickCollectable(col);
             }
         }
@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
             }
             if (col.gameObject.CompareTag("Puaj") && stats.PuajAnimationElapsedTime > stats.PuajAnimationCooldownTime)
             {
-                AudioSource.PlayClipAtPoint(puajSFX, transform.position);
+                AudioSource.PlayClipAtPoint(stats.PuajSFX, transform.position);
                 GetComponent<Animator>().SetTrigger("Cucumber_Touch");
                 stats.PuajAnimationLastTime = Time.time;
             }
