@@ -7,6 +7,25 @@ using UnityEngine.Networking;
 /// </summary>
 public class ProcesosWeb : MonoBehaviour
 {
+    public Player player;
+
+    private void Awake()
+    {
+        player = Player.FindObjectOfType<Player>();
+    }
+    
+    public void ReadFromWeb()
+    {
+        Read(EnsamlbeHighScore);
+    }
+    public void EnsamlbeHighScore()
+    {
+        CreateTable();
+        FillTable();
+        CheckForHighscore();
+    }
+
+
     [System.Serializable]
     public struct StructHighscoreData
     {
@@ -15,24 +34,28 @@ public class ProcesosWeb : MonoBehaviour
         {
             public string name;
             public int score;
-            public int level;
-            public string date;
+            //public int level;
+            //public string date;
         }
         public List<Reg> highscores;
     }
 
-    private StructHighscoreData highscoreData;
+
+    public StructHighscoreData highscoreData;
     public Transform highscore_Table;
+    public Transform new_Highscore;
+    public TMPro.TMP_InputField inpuName;
+
     public GameObject register;
     private int registerAmount = 10;
 
     [ContextMenu("Read")]
- public void Leer()
+ public void Read(System.Action whenFinished)
     {
-        StartCoroutine(ReadCoroutine());
+        StartCoroutine(ReadCoroutine(whenFinished));
     }
 
-    private IEnumerator ReadCoroutine()
+    private IEnumerator ReadCoroutine(System.Action whenFinished)
     {
         UnityWebRequest web = UnityWebRequest.Get("https://pipasjourney.com/compartido/DeepDiver2020HighScores.txt");
         yield return web.SendWebRequest();
@@ -46,12 +69,14 @@ public class ProcesosWeb : MonoBehaviour
         }
         else
         {
+            Debug.Log("Web Post request: All good");
             highscoreData =JsonUtility.FromJson<StructHighscoreData>(web.downloadHandler.text);
+            whenFinished();
         }
     }
 
     [ContextMenu("Write")]
-    public void Escribir()
+    public void Write()
     {
         StartCoroutine(WriteCoroutine());
     }
@@ -85,5 +110,64 @@ public class ProcesosWeb : MonoBehaviour
             instance.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, i * -50);
         }
     }
+
+    [ContextMenu("Fill Table")]
+    void FillTable()
+    {
+        for (int i = 0; i < registerAmount; i++)
+        {
+            highscore_Table.GetChild(i).GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = highscoreData.highscores[i].name;
+            highscore_Table.GetChild(i).GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = highscoreData.highscores[i].score.ToString();
+        }
+    }
+
+    [ContextMenu("Check for Highscore")]
+    void CheckForHighscore()
+    {
+        if (player.Stats.LootAmmount > highscoreData.highscores[registerAmount - 1].score)
+        {
+            highscore_Table.gameObject.SetActive(false);
+            new_Highscore.gameObject.SetActive(true);
+        }
+        else
+        {
+            highscore_Table.gameObject.SetActive(true);
+            new_Highscore.gameObject.SetActive(false);
+        }
+    }
+
+    [ContextMenu("Insert new reg")]
+    void InsertReg()
+    {
+        for (int i = 0; i < registerAmount; i++)
+        {
+            if (player.Stats.LootAmmount > highscoreData.highscores[i].score )
+            {
+                highscoreData.highscores.Insert(i, new StructHighscoreData.Reg()
+                {
+                    name = inpuName.text,
+                    score = player.Stats.LootAmmount
+                });
+                break;
+            }
+        }
+    }
+
+    public void ImputFinished()
+    {
+        new_Highscore.gameObject.SetActive(false);
+        highscore_Table.gameObject.SetActive(true);
+        Read(InsertAndWrite);
+    }
+
+    public void InsertAndWrite()
+    {
+        InsertReg();
+        Write();
+        FillTable();
+    }
+
+    
+
 
 }
