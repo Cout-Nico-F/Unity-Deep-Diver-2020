@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         //deactivate ingame buttons.
-        highScoresPanel.transform.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
+        highScoresPanel.transform.parent.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
         gameOverPanel.SetActive(true);
     }
     public void Restart()
@@ -96,10 +96,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main_Menu");
     }
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+    
 
     IEnumerator LoadAsyncScene(string scene_name)//from unity docs
     {
@@ -121,7 +118,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         //show HighScores panel and ask for input player's name
         highScoresPanel.SetActive(true);
-        highScoresPanel.transform.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
+        highScoresPanel.transform.parent.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
         //save player score, name and date to Json
         //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
 
