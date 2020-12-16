@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
     }
     public void SubmitScore()
     {
-        if (player.transform.position.y >= -2.5) //cant submit when fallen
+        if (player.transform.position.y >= -2) //cant submit when fallen
         {
             isGameOver = true;
             //show HighScores panel and ask for input player's name
