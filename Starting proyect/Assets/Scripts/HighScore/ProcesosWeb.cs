@@ -7,7 +7,6 @@ using UnityEngine.Networking;
 /// </summary>
 public class ProcesosWeb : MonoBehaviour
 {
-
     [System.Serializable]
     public struct StructHighscoreData
     {
@@ -22,9 +21,12 @@ public class ProcesosWeb : MonoBehaviour
         public List<Reg> highscores;
     }
 
-    public StructHighscoreData highscoreData;
+    private StructHighscoreData highscoreData;
+    public Transform highscore_Table;
+    public GameObject register;
+    private int registerAmount = 10;
 
- [ContextMenu("Leer")]
+    [ContextMenu("Read")]
  public void Leer()
     {
         StartCoroutine(ReadCoroutine());
@@ -48,7 +50,7 @@ public class ProcesosWeb : MonoBehaviour
         }
     }
 
-    [ContextMenu("Escribir")]
+    [ContextMenu("Write")]
     public void Escribir()
     {
         StartCoroutine(WriteCoroutine());
@@ -72,6 +74,16 @@ public class ProcesosWeb : MonoBehaviour
         }
         else
         Debug.Log("Web Post request: All good");
+    }
+
+    [ContextMenu("Create Table")]
+    void CreateTable()
+    {
+        for (int i = 0; i < registerAmount; i++)
+        {
+            GameObject instance = Instantiate(register, highscore_Table);
+            instance.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, i * -50);
+        }
     }
 
 }

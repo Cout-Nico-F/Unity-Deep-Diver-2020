@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [Space]
     [SerializeField]
     PlayerComponents components = null;
+
     PlayerReferences references;
     PlayerUtilities utilities;
     PlayerActions actions;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
 
     public PlayerComponents Components { get => components; }
     public PlayerStats Stats { get => stats; }
+    public PlayerReferences References { get => references; }
 
     private void Awake()
     {

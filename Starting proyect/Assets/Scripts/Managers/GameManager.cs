@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -68,10 +69,10 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScore()
     {
-        Debug.Log("UpdatingScore");
+       //Debug.Log("UpdatingScore");
         ingameUI.Score = player.Stats.LootAmmount;
         ingameUI.ScoreText.text = ingameUI.Score.ToString();
-        Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
+        //Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
     }
 
     public void DestroyObject(GameObject obj)
@@ -135,6 +136,9 @@ public class GameManager : MonoBehaviour
                 highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
             }
         }
-        else { /*Todo: Sound "error/No" */} 
+        else 
+        {
+            AudioSource.PlayClipAtPoint(player.Stats.NopeSFX, transform.position, 1f);
+        }
     }
 }
