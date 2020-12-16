@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,9 @@ public class IngameUI
     private int score;
 
     [SerializeField]
-    private Text scoreText = null;
-    
+    private TextMeshPro scoreText = null;
+
     public int Score { get => score; set => score = value; }
-    public Text ScoreText { get => scoreText; set => scoreText = value; }
+    public TextMeshPro ScoreText { get => scoreText; set => scoreText = value; }
 
 }

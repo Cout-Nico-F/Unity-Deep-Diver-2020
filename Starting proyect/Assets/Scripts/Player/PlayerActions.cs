@@ -16,7 +16,6 @@ public class PlayerActions
     }
     public void PickCollectable (Collider2D col)
     {
-        Debug.Log("PickCollectable method here");
         player.Stats.LootAmmount+=1;
         Destroy(col.gameObject);
         //col.gameObject.SetActive(false); //TODO:research about what is better(cheaper): destroy or setACtive? 

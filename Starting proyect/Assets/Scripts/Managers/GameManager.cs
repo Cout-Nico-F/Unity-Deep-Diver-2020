@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("UpdatingScore");
         ingameUI.Score = player.Stats.LootAmmount;
-        ingameUI.ScoreText.text = " Treasures: " + ingameUI.Score;
+        ingameUI.ScoreText.text = ingameUI.Score.ToString();
         Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
     }
 
