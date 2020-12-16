@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         if (player.gameObject != GameObject.FindGameObjectWithTag("Player"))
         {
             Debug.LogError("Forgot to change serializable Player on GameManager object");
-            
+
         }
         gameOverPanel.SetActive(false);
         highScoresPanel.SetActive(false);
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver)
         { return; }
-        
+
         UpdateScore();
     }
 
@@ -68,10 +68,10 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScore()
     {
-            Debug.Log("UpdatingScore");
-            ingameUI.Score = player.Stats.LootAmmount;
-            ingameUI.ScoreText.text = " Treasures: " + ingameUI.Score;
-            Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
+        Debug.Log("UpdatingScore");
+        ingameUI.Score = player.Stats.LootAmmount;
+        ingameUI.ScoreText.text = " Treasures: " + ingameUI.Score;
+        Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
     }
 
     public void DestroyObject(GameObject obj)
@@ -92,11 +92,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("LevelOne");
         //StartCoroutine(LoadAsyncScene());
     }
-     public void ToMainMenu()
+    public void ToMainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
     }
-    
+
 
     IEnumerator LoadAsyncScene(string scene_name)//from unity docs
     {
@@ -115,23 +115,26 @@ public class GameManager : MonoBehaviour
     }
     public void SubmitScore()
     {
-        isGameOver = true;
-        //show HighScores panel and ask for input player's name
-        highScoresPanel.SetActive(true);
-        highScoresPanel.transform.parent.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
-        //save player score, name and date to Json
-        //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
-
-        if (player.Stats.LootAmmount > 3)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
+        if (player.transform.position.y >= -2.5) //cant submit when fallen
         {
-            //Enable button to pass to next level
-            highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);
-        }
-        else
-        {
-            //show a message saying You cant proceed with such a low score. or smthing
-            highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
-        }
+            isGameOver = true;
+            //show HighScores panel and ask for input player's name
+            highScoresPanel.SetActive(true);
+            highScoresPanel.transform.parent.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
+            //save player score, name and date to Json
+            //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
 
+            if (player.Stats.LootAmmount > 3)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
+            {
+                //Enable button to pass to next level
+                highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);
+            }
+            else
+            {
+                //show a message saying You cant proceed with such a low score. or smthing
+                highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
+            }
+        }
+        else { /*Todo: Sound "error/No" */} 
     }
 }
