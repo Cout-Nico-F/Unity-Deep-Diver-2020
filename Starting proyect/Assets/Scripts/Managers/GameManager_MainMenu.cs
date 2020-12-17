@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager_MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    GameObject howToPlayScreen;
+
     private void Start()
     {
         if (GameObject.Find("MUSIC"))
@@ -34,6 +37,12 @@ public class GameManager_MainMenu : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public void HowToPlay()
+    {
+        howToPlayScreen.SetActive(true);
+        //todo: Play bubble sound.
     }
 
 }
