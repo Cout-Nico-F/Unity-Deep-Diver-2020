@@ -28,6 +28,7 @@ public class PlayerStats
     AudioClip deadSFX;
     [SerializeField]
     AudioClip nopeSFX;
+
     private float puajAnimationElapsedTime;
     private float puajAnimationLastTime;
     [SerializeField]
