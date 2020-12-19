@@ -7,6 +7,8 @@ public class GameManager_MainMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject howToPlayScreen;
+    [SerializeField]
+    AudioClip bubbleSXF;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class GameManager_MainMenu : MonoBehaviour
     }
     public void StartGame()
     {
+        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
         StartCoroutine(LoadAsyncScene("LevelOne"));
     }
     public void QuitGame()
@@ -42,6 +45,7 @@ public class GameManager_MainMenu : MonoBehaviour
     public void HowToPlay()
     {
         howToPlayScreen.SetActive(true);
+        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
         //todo: Play bubble sound.
     }
 

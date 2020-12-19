@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   howToPlayScreen: {fileID: 849292954}
+  bubbleSXF: {fileID: 8300000, guid: c0fd435af89ca6c429e8d91e89fc6f90, type: 3}
 --- !u!4 &72696580
 Transform:
   m_ObjectHideFlags: 0
