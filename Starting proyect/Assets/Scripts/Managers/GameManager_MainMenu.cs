@@ -8,6 +8,8 @@ public class GameManager_MainMenu : MonoBehaviour
     [SerializeField]
     GameObject howToPlayScreen;
     [SerializeField]
+    GameObject creditsScreen;
+    [SerializeField]
     AudioClip bubbleSXF;
 
     private void Start()
@@ -44,9 +46,19 @@ public class GameManager_MainMenu : MonoBehaviour
 
     public void HowToPlay()
     {
-        howToPlayScreen.SetActive(true);
         AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
-        //todo: Play bubble sound.
+        howToPlayScreen.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
+        creditsScreen.SetActive(true);
+    }
+    public void Menu()
+    {
+        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
+        creditsScreen.SetActive(false);
     }
 
 }
