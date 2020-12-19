@@ -28,6 +28,8 @@ public class PlayerStats
     AudioClip deadSFX;
     [SerializeField]
     AudioClip nopeSFX;
+    [SerializeField]
+    AudioClip applauseSFX;
 
     private float puajAnimationElapsedTime;
     private float puajAnimationLastTime;
@@ -41,5 +43,6 @@ public class PlayerStats
     public AudioClip PuajSFX { get => puajSFX; }
     public AudioClip DeadSFX { get => deadSFX; }
     public AudioClip NopeSFX { get => nopeSFX; }
+    public AudioClip ApplauseSFX { get => applauseSFX; }
 
 }
