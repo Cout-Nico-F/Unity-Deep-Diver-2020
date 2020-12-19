@@ -20,9 +20,9 @@ public class ProcesosWeb : MonoBehaviour
     }
     public void EnsamlbeHighScore()
     {
+        CheckForHighscore();
         CreateTable();
         FillTable();
-        CheckForHighscore();
     }
 
 

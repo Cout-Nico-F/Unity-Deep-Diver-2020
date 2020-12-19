@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
             //save player score, name and date to Json
             //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
 
-            if (player.Stats.LootAmmount > 3)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
+            if (player.Stats.LootAmmount > 30)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
             {
                 //Enable button to pass to next level
                 highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);
