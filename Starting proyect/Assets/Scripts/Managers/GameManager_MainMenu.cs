@@ -10,6 +10,8 @@ public class GameManager_MainMenu : MonoBehaviour
     [SerializeField]
     GameObject creditsScreen;
     [SerializeField]
+    GameObject menuScreen;
+    [SerializeField]
     AudioClip bubbleSXF;
 
     private void Start()
@@ -48,17 +50,21 @@ public class GameManager_MainMenu : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
         howToPlayScreen.SetActive(true);
+        menuScreen.SetActive(false);
     }
 
     public void Credits()
     {
         AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
         creditsScreen.SetActive(true);
+        menuScreen.SetActive(false);
     }
     public void Menu()
     {
         AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
         creditsScreen.SetActive(false);
+        menuScreen.SetActive(true);
+
     }
 
 }
