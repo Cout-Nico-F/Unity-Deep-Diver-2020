@@ -138,7 +138,35 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            AudioSource.PlayClipAtPoint(player.Stats.NopeSFX, transform.position, 1f);
+            player.References.NopeSFX.GetComponent<AudioSource>().Play();
+            //AudioSource.PlayClipAtPoint(player.Stats.NopeSFX.GetComponent<AudioSource>().clip, transform.position, 1f);
+        }
+    }
+    
+    public void PlaySFX(string name)
+    {
+        name = name.ToUpper();
+
+        switch (name)
+        {
+            case "COLLECTSFX":
+                player.References.CollectSFX.GetComponent<AudioSource>().Play();
+                break;
+            case "NOPESFX":
+                player.References.NopeSFX.GetComponent<AudioSource>().Play();
+                break;
+            case "APPLAUSESFX":
+                player.References.ApplauseSFX.GetComponent<AudioSource>().Play();
+                break;
+            case "DEADSFX":
+                player.References.DeadSFX.GetComponent<AudioSource>().Play();
+                break;
+            case "PUAJSFX":
+                player.References.PuajSFX.GetComponent<AudioSource>().Play();
+                break;
+            default:
+                Debug.LogError("ERROR:Something went wrong on PlaySFX method on GameManager.cs Line:168/GameManager.cs");
+                break;
         }
     }
 }
