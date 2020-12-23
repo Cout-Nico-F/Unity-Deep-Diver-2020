@@ -11,18 +11,18 @@ public class PlayerReferences
     public Sprite DeadSprite { get => deadSprite;}
 
     [SerializeField]
-    AudioClip collectSFX;
+    GameObject collectSFX;
     [SerializeField]
-    AudioClip puajSFX;
+    GameObject puajSFX;
     [SerializeField]
-    AudioClip deadSFX;
+    GameObject deadSFX;
     [SerializeField]
     GameObject nopeSFX;
     [SerializeField]
-    AudioClip applauseSFX;
-    public AudioClip CollectSFX { get => collectSFX; }
-    public AudioClip PuajSFX { get => puajSFX; }
-    public AudioClip DeadSFX { get => deadSFX; }
+    GameObject applauseSFX;
+    public GameObject CollectSFX { get => collectSFX; }
+    public GameObject PuajSFX { get => puajSFX; }
+    public GameObject DeadSFX { get => deadSFX; }
     public GameObject NopeSFX { get => nopeSFX; }
-    public AudioClip ApplauseSFX { get => applauseSFX; }
+    public GameObject ApplauseSFX { get => applauseSFX; }
 }
