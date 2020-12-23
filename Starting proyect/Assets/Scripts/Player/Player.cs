@@ -18,8 +18,9 @@ public class Player : MonoBehaviour
     [Space]
     [SerializeField]
     PlayerComponents components = null;
+    [SerializeField]
+    PlayerReferences references = null;
 
-    PlayerReferences references;
     PlayerUtilities utilities;
     PlayerActions actions;
     [SerializeField]
@@ -36,11 +37,11 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("Assign GameManager object to Player!! (gameManager was null on Player script)");
         }
-        if (stats.CollectSFX == null)
+        if (references.CollectSFX == null)
         {
             Debug.LogError("Assign Collect-SFX to the Player!");
         }
-        if (stats.PuajSFX == null)
+        if (references.PuajSFX == null)
         {
             Debug.LogError("Assign Puaj-SFX to the Player!");
         }
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour
         actions = new PlayerActions(this);
         utilities = new PlayerUtilities(this);
         stats.Speed = stats.WalkSpeed;
-        references = new PlayerReferences();
     }
     // Start is called before the first frame update
     void Start()
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
         {
             if (col.CompareTag("Collectable"))
             {
-                AudioSource.PlayClipAtPoint(stats.CollectSFX, transform.position, 0.45f);
+                AudioSource.PlayClipAtPoint(references.CollectSFX, transform.position, 0.45f);
                 actions.PickCollectable(col);
             }
         }
@@ -96,14 +96,14 @@ public class Player : MonoBehaviour
             {
                 //Vector3 cameraPos = new Vector3(transform.position.x, transform.position.y, Camera.main.transform);
                 //AudioSource.PlayClipAtPoint(stats.DeadSFX, Camera.main.transform.position, 1f);
-                AudioSource.PlayClipAtPoint(stats.DeadSFX, transform.position,1f);
+                AudioSource.PlayClipAtPoint(references.DeadSFX, transform.position,1f);
                 GetComponent<Animator>().SetBool("Dead", true);
                 Components.Rigidbody2D.AddForce(new Vector2(6.2f, 5.0f), ForceMode2D.Impulse);
                 gameManager.GameOver();
             }
             if (col.gameObject.CompareTag("Puaj") && stats.PuajAnimationElapsedTime > stats.PuajAnimationCooldownTime)
             {
-                AudioSource.PlayClipAtPoint(stats.PuajSFX, transform.position,0.45f);
+                AudioSource.PlayClipAtPoint(references.PuajSFX, transform.position,0.45f);
                 GetComponent<Animator>().SetTrigger("Cucumber_Touch");
                 stats.PuajAnimationLastTime = Time.time;
             }

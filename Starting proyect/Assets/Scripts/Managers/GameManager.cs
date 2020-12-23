@@ -138,7 +138,8 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            AudioSource.PlayClipAtPoint(player.Stats.NopeSFX, transform.position, 1f);
+            player.References.NopeSFX.GetComponent<AudioSource>().Play();
+            //AudioSource.PlayClipAtPoint(player.Stats.NopeSFX.GetComponent<AudioSource>().clip, transform.position, 1f);
         }
     }
 }
