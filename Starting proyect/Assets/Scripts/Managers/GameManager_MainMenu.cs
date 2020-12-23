@@ -12,7 +12,7 @@ public class GameManager_MainMenu : MonoBehaviour
     [SerializeField]
     GameObject VolumeSlider;
     [SerializeField]
-    AudioClip bubbleSXF;
+    GameObject bubbleSFX;
 
     private void Start()
     {
@@ -23,13 +23,35 @@ public class GameManager_MainMenu : MonoBehaviour
     }
     public void StartGame()
     {
-        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
+        bubbleSFX.GetComponent<AudioSource>().Play();
         StartCoroutine(LoadAsyncScene("LevelOne"));
     }
     public void QuitGame()
     {
         Application.Quit();
     }
+
+    public void HowToPlay()
+    {
+        bubbleSFX.GetComponent<AudioSource>().Play();
+        howToPlayScreen.SetActive(true);
+        VolumeSlider.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        bubbleSFX.GetComponent<AudioSource>().Play();
+        creditsScreen.SetActive(true);
+        VolumeSlider.SetActive(false);
+    }
+    public void Menu()
+    {
+
+        bubbleSFX.GetComponent<AudioSource>().Play();
+        creditsScreen.SetActive(false);
+        VolumeSlider.SetActive(true);
+    }
+
     IEnumerator LoadAsyncScene(string scene_name)//from unity docs
     {
         // The Application loads the Scene in the background as the current Scene runs.
@@ -44,26 +66,6 @@ public class GameManager_MainMenu : MonoBehaviour
         {
             yield return null;
         }
-    }
-
-    public void HowToPlay()
-    {
-        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
-        howToPlayScreen.SetActive(true);
-        VolumeSlider.SetActive(false);
-    }
-
-    public void Credits()
-    {
-        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
-        creditsScreen.SetActive(true);
-        VolumeSlider.SetActive(false);
-    }
-    public void Menu()
-    {
-        AudioSource.PlayClipAtPoint(bubbleSXF, transform.position, 1f);
-        creditsScreen.SetActive(false);
-        VolumeSlider.SetActive(true);
     }
 
 }
