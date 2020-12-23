@@ -4932,7 +4932,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 304130847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bf2323eaa20af45a8a1054d6fbba58, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eb43053006f7fa4996922fdf834ece9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 3b82d318da5c262478470699e9558d2a, type: 2}
@@ -26148,7 +26148,7 @@ GameObject:
   - component: {fileID: 2118116231}
   - component: {fileID: 2118116230}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Music_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
