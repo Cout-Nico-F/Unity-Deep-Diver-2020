@@ -10,7 +10,9 @@ public class GameManager_MainMenu : MonoBehaviour
     [SerializeField]
     GameObject creditsScreen;
     [SerializeField]
-    GameObject VolumeSlider;
+    GameObject Volume_Slider;
+    [SerializeField]
+    GameObject SFX_slider;
     [SerializeField]
     GameObject bubbleSFX;
 
@@ -35,21 +37,26 @@ public class GameManager_MainMenu : MonoBehaviour
     {
         bubbleSFX.GetComponent<AudioSource>().Play();
         howToPlayScreen.SetActive(true);
-        VolumeSlider.SetActive(false);
+        Volume_Slider.SetActive(false);
+        SFX_slider.SetActive(false);
     }
 
     public void Credits()
     {
         bubbleSFX.GetComponent<AudioSource>().Play();
         creditsScreen.SetActive(true);
-        VolumeSlider.SetActive(false);
+        Volume_Slider.SetActive(false);
+        SFX_slider.SetActive(false);
+
     }
     public void Menu()
     {
 
         bubbleSFX.GetComponent<AudioSource>().Play();
         creditsScreen.SetActive(false);
-        VolumeSlider.SetActive(true);
+        Volume_Slider.SetActive(true);
+        SFX_slider.SetActive(true);
+
     }
 
     IEnumerator LoadAsyncScene(string scene_name)//from unity docs
