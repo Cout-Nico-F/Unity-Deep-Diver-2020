@@ -1915,6 +1915,11 @@ PrefabInstance:
       propertyPath: stats.applauseSFX
       value: 
       objectReference: {fileID: 8300000, guid: e133227a3b4b7e3459b9d1d5125dc843, type: 3}
+    - target: {fileID: 3472703548883796686, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
+        type: 3}
+      propertyPath: stats.lootAmmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3472703548883796687, guid: 1cb2852a3fa2b114daa1590f0e0598fb,
         type: 3}
       propertyPath: m_Mass
@@ -4303,7 +4308,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.48651922, y: 2.2662299, z: 0, w: -0.008156407}
+  m_margin: {x: -0.48651922, y: 2.2662299, z: -125.130325, w: -0.008156407}
   m_textInfo:
     textComponent: {fileID: 284645419}
     characterCount: 1
