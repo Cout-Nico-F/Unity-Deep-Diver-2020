@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     GameObject gameOverPanel = null;
     [SerializeField]
     GameObject highScoresPanel = null;
-
+    [SerializeField]
+    int foodForNextLevel;
     private bool isGameOver;
 
     public bool IsGameOver { get => isGameOver; }
@@ -97,7 +98,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main_Menu");
     }
-
+    public void NextLevel()
+    {
+        PlayerPrefs.SetFloat("Score", player.Stats.LootAmmount);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     IEnumerator LoadAsyncScene(string scene_name)//from unity docs
     {
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour
             //save player score, name and date to Json
             //maybe give some seconds to visualize your name in the highscore table or wait for input to continue.
 
-            if (player.Stats.LootAmmount > 30)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
+            if (player.Stats.LootAmmount > foodForNextLevel)//Condition to be able to pass to next level. Maybe [ score > avg(highscore) ] or score > 40.
             {
                 //Enable button to pass to next level
                 highScoresPanel.transform.Find("NextLevel_Submit").gameObject.SetActive(true);

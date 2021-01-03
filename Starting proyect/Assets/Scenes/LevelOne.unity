@@ -6993,6 +6993,7 @@ MonoBehaviour:
     scoreText: {fileID: 284645419}
   gameOverPanel: {fileID: 550457871}
   highScoresPanel: {fileID: 2036111662}
+  foodForNextLevel: 5
 --- !u!4 &505036381
 Transform:
   m_ObjectHideFlags: 0
@@ -14324,7 +14325,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 505036380}
-        m_MethodName: 
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
