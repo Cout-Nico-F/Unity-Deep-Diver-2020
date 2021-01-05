@@ -70,10 +70,8 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScore()
     {
-       //Debug.Log("UpdatingScore");
         ingameUI.Score = player.Stats.LootAmmount;
         ingameUI.ScoreText.text = ingameUI.Score.ToString();
-        //Debug.Log("player.Stats.LootAmmount = " + player.Stats.LootAmmount.ToString());
     }
 
     public void DestroyObject(GameObject obj)

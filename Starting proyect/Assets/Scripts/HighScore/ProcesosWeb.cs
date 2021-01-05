@@ -129,7 +129,6 @@ public class ProcesosWeb : MonoBehaviour
     {
         if (player.Stats.LootAmmount > highscoreData.highscores[registerAmount - 1].score)
         {
-            //AudioSource.PlayClipAtPoint(player.References.ApplauseSFX, transform.position, 1f);
             gameManager.PlaySFX("ApplauseSFX");
             highscore_Table.gameObject.SetActive(false);
             new_Highscore.gameObject.SetActive(true);

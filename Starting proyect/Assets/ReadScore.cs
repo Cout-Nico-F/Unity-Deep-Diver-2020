@@ -11,11 +11,4 @@ public class ReadScore : MonoBehaviour
     {
         player.Stats.LootAmmount = PlayerPrefs.GetInt("Score");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }
