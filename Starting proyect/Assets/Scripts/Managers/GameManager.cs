@@ -91,7 +91,8 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         isGameOver = false;
-        SceneManager.LoadScene("LevelOne");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         //StartCoroutine(LoadAsyncScene());
     }
     public void ToMainMenu()
