@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
-public class PlayerStats 
+public class PlayerStats
 {
     private Vector2 direction;
 
@@ -20,7 +18,7 @@ public class PlayerStats
     public int LootAmmount { get => lootAmmount; set => lootAmmount = value; }
 
     //animation variables
-   
+
 
     private float puajAnimationElapsedTime;
     private float puajAnimationLastTime;

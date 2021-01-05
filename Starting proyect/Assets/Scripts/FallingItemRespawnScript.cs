@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FallingItemRespawnScript : MonoBehaviour
 {
-    Vector3 initialPos;   
+    Vector3 initialPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +22,7 @@ public class FallingItemRespawnScript : MonoBehaviour
         if (transform.position.y <= -3.4)
         {
             transform.position = initialPos + Vector3.up * 3;
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0.1f,-0.1f);
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0.1f, -0.1f);
         }
     }
 }

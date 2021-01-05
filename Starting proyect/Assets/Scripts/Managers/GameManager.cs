@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -143,13 +142,13 @@ public class GameManager : MonoBehaviour
                 highScoresPanel.transform.Find("CantPassLevel").gameObject.SetActive(true);
             }
         }
-        else 
+        else
         {
             player.References.NopeSFX.GetComponent<AudioSource>().Play();
             //AudioSource.PlayClipAtPoint(player.Stats.NopeSFX.GetComponent<AudioSource>().clip, transform.position, 1f);
         }
     }
-    
+
     public void PlaySFX(string name)
     {
         name = name.ToUpper();

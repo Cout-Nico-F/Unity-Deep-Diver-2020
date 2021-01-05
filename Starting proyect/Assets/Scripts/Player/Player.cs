@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class Player : MonoBehaviour
     [Space]
     [SerializeField]
     GameManager gameManager = null;
-    
+
     [Space]
     [SerializeField]
     PlayerComponents components = null;
@@ -82,7 +80,6 @@ public class Player : MonoBehaviour
             if (col.CompareTag("Collectable"))
             {
                 gameManager.PlaySFX("CollectSFX");
-                //AudioSource.PlayClipAtPoint(references.CollectSFX, transform.position, 0.45f);
                 actions.PickCollectable(col);
             }
         }
@@ -95,7 +92,6 @@ public class Player : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Danger"))
             {
-                //AudioSource.PlayClipAtPoint(references.DeadSFX, transform.position,1f);
                 gameManager.PlaySFX("DeadSFX");
                 GetComponent<Animator>().SetBool("Dead", true);
                 Components.Rigidbody2D.AddForce(new Vector2(6.2f, 5.0f), ForceMode2D.Impulse);
@@ -103,7 +99,6 @@ public class Player : MonoBehaviour
             }
             if (col.gameObject.CompareTag("Puaj") && stats.PuajAnimationElapsedTime > stats.PuajAnimationCooldownTime)
             {
-                //AudioSource.PlayClipAtPoint(references.PuajSFX, transform.position,0.45f);
                 gameManager.PlaySFX("PuajSFX");
                 GetComponent<Animator>().SetTrigger("Cucumber_Touch");
                 stats.PuajAnimationLastTime = Time.time;

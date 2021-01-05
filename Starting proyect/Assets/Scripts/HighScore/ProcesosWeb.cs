@@ -16,7 +16,7 @@ public class ProcesosWeb : MonoBehaviour
         player = Player.FindObjectOfType<Player>();
         gameManager = GameManager.FindObjectOfType<GameManager>();
     }
-    
+
     public void ReadFromWeb()
     {
         Read(EnsamlbeHighScore);
@@ -53,7 +53,7 @@ public class ProcesosWeb : MonoBehaviour
     private int registerAmount = 10;
 
     [ContextMenu("Read")]
- public void Read(System.Action whenFinished)
+    public void Read(System.Action whenFinished)
     {
         StartCoroutine(ReadCoroutine(whenFinished));
     }
@@ -73,7 +73,7 @@ public class ProcesosWeb : MonoBehaviour
         else
         {
             Debug.Log("Web Post request: All good");
-            highscoreData =JsonUtility.FromJson<StructHighscoreData>(web.downloadHandler.text);
+            highscoreData = JsonUtility.FromJson<StructHighscoreData>(web.downloadHandler.text);
             whenFinished();
         }
     }
@@ -92,7 +92,7 @@ public class ProcesosWeb : MonoBehaviour
 
         UnityWebRequest web = UnityWebRequest.Post("https://pipasjourney.com/compartido/escribir.php", form);
         yield return web.SendWebRequest();
-        if(web.isNetworkError)
+        if (web.isNetworkError)
         {
             Debug.LogError("Web Post request: Is Network Error!");
         }
@@ -101,7 +101,7 @@ public class ProcesosWeb : MonoBehaviour
             Debug.LogError("Web Post request: Is HTTP Error!");
         }
         else
-        Debug.Log("Web Post request: All good");
+            Debug.Log("Web Post request: All good");
     }
 
     [ContextMenu("Create Table")]
@@ -145,7 +145,7 @@ public class ProcesosWeb : MonoBehaviour
     {
         for (int i = 0; i < registerAmount; i++)
         {
-            if (player.Stats.LootAmmount > highscoreData.highscores[i].score )
+            if (player.Stats.LootAmmount > highscoreData.highscores[i].score)
             {
                 highscoreData.highscores.Insert(i, new StructHighscoreData.Reg()
                 {
@@ -171,7 +171,7 @@ public class ProcesosWeb : MonoBehaviour
         FillTable();
     }
 
-    
+
 
 
 }

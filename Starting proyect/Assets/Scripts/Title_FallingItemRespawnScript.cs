@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Title_FallingItemRespawnScript : MonoBehaviour
 {
     Vector3 initialPos;
-    
+
     // Start is called before the first frame update
     private void Awake()
     {
-        
+
     }
     void Start()
     {
@@ -29,7 +27,7 @@ public class Title_FallingItemRespawnScript : MonoBehaviour
         if (transform.position.y <= -8.5)
         {
             transform.position = initialPos;
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0.1f,-0.1f);
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0.1f, -0.1f);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class PlayerReferences
@@ -8,7 +6,7 @@ public class PlayerReferences
     [SerializeField]
     private Sprite deadSprite;
 
-    public Sprite DeadSprite { get => deadSprite;}
+    public Sprite DeadSprite { get => deadSprite; }
 
     [SerializeField]
     GameObject collectSFX;

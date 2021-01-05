@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +25,7 @@ public class GameManager_MainMenu : MonoBehaviour
     public void StartGame()
     {
         bubbleSFX.GetComponent<AudioSource>().Play();
-        PlayerPrefs.SetInt("Score",0);
+        PlayerPrefs.SetInt("Score", 0);
         StartCoroutine(LoadAsyncScene("LevelOne"));
     }
     public void QuitGame()
