@@ -3,12 +3,6 @@
 public class Title_FallingItemRespawnScript : MonoBehaviour
 {
     Vector3 initialPos;
-
-    // Start is called before the first frame update
-    private void Awake()
-    {
-
-    }
     void Start()
     {
         initialPos = transform.position;
