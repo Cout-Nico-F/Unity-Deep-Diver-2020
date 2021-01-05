@@ -84,24 +84,27 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        //deactivate ingame buttons.
+        PlayerPrefs.SetInt("Score", 0);
+
         highScoresPanel.transform.parent.parent.Find("Ingame_Buttons").gameObject.SetActive(false);
         gameOverPanel.SetActive(true);
     }
     public void Restart()
     {
         isGameOver = false;
+        PlayerPrefs.SetInt("Score", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         //StartCoroutine(LoadAsyncScene());
     }
     public void ToMainMenu()
     {
+        PlayerPrefs.SetInt("Score", 0);
         SceneManager.LoadScene("Main_Menu");
     }
     public void NextLevel()
     {
-        PlayerPrefs.SetFloat("Score", player.Stats.LootAmmount);
+        PlayerPrefs.SetInt("Score", player.Stats.LootAmmount);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

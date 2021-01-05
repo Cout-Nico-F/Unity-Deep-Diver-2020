@@ -26,6 +26,7 @@ public class GameManager_MainMenu : MonoBehaviour
     public void StartGame()
     {
         bubbleSFX.GetComponent<AudioSource>().Play();
+        PlayerPrefs.SetInt("Score",0);
         StartCoroutine(LoadAsyncScene("LevelOne"));
     }
     public void QuitGame()

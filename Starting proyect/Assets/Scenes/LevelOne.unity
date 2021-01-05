@@ -7520,6 +7520,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1889219960}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &610892302 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1753678944433976134, guid: 0bd535e23fd0cc0469b7350756a69626,
+    type: 3}
+  m_PrefabInstance: {fileID: 1753678943275117356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &613137237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21149,12 +21155,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1469554234}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &2062506090 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1753678944433976134, guid: 0bd535e23fd0cc0469b7350756a69626,
-    type: 3}
-  m_PrefabInstance: {fileID: 1753678943275117356}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2065644482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1503781696978759272, guid: 230f5b407911c2740995725fa018c04a,
@@ -23079,7 +23079,7 @@ PrefabInstance:
         type: 3}
       propertyPath: new_Highscore
       value: 
-      objectReference: {fileID: 2062506090}
+      objectReference: {fileID: 610892302}
     - target: {fileID: 6614008815012658579, guid: d9e542e7c5b538646bd0823bc0b0da55,
         type: 3}
       propertyPath: inpuName
