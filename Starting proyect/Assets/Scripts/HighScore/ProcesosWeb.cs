@@ -15,6 +15,7 @@ public class ProcesosWeb : MonoBehaviour
     {
         player = Player.FindObjectOfType<Player>();
         gameManager = GameManager.FindObjectOfType<GameManager>();
+        //EraseCheater();
     }
 
     public void ReadFromWeb()
@@ -60,7 +61,7 @@ public class ProcesosWeb : MonoBehaviour
 
     private IEnumerator ReadCoroutine(System.Action whenFinished)
     {
-        UnityWebRequest web = UnityWebRequest.Get("https://pipasjourney.com/compartido/DeepDiver2020HighScores.txt");
+        UnityWebRequest web = UnityWebRequest.Get("https://www.pipasjourney.com/compartido/leer.php?archivo=DeepDiver2020HighScores.txt");
         yield return web.SendWebRequest();
         if (web.isNetworkError)
         {
@@ -170,7 +171,15 @@ public class ProcesosWeb : MonoBehaviour
         Write();
         FillTable();
     }
-
+    public void EraseCheater()
+    {
+        Read(EraseCheater2);
+    }
+    public void EraseCheater2()
+    {
+        highscoreData.highscores.RemoveRange(0, 1);
+        Write();
+    }
 
 
 
